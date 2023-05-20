@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: microservice1_route
+          uri: http://localhost:8186
+          predicates:
+            - Path=/products/**
+
+  application:
+    name: api-gateway
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    hostname: localhost
+server:
+  port: 8087
+
+
